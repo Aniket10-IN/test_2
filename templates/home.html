@@ -1,0 +1,23 @@
+<!-- <!DOCTYPE html> -->
+<html>
+<head>
+    <title>Model Prediction</title>
+</head>
+<body>
+    <h1>Music Recommendation:</h1>
+    <!-- <form action="{{ url_for('predict_datapoint')}}" method="post"> -->
+    <form method="post" action="/predictdata">
+        <!-- <form action="{{ url_for('predict_datapoint')}}" method="post"> -->
+        <label for="user_id">Enter User ID:</label>
+        <input type="text" name="user_id" id="user_id" placeholder="Type user ID here">
+        <input type="submit" value="Generate Prediction" required />
+    </form>
+
+    <!-- {% if results_ %}
+    <h2>Prediction Result:</h2>
+    <p>{{ results_ }}</p>
+    {% endif %} -->
+    
+    <h2>Next 10 recommendations: {{results | safe }}</h2>
+</body>
+</html>

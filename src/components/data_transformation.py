@@ -8,7 +8,7 @@ from src.exception import CustomException
 from src.logger import logging
 import os
 
-from src.utils import save_object
+from src.utils import save_object, save_preprocessor
 
 @dataclass
 class DataTransformationConfig:
@@ -29,8 +29,8 @@ class DataTransformation:
             # logging.info('data_transformation_started')
 
             pivoted_data = input_data.pivot(index=self.index_column, columns=self.pivot_column, values=self.value_column).fillna(0)
-            pivoted_data.div(5.0)
-            pivoted_data.reset_index(drop = True).T
+            pivoted_data = pivoted_data.div(5.0)
+            pivoted_data = pivoted_data.reset_index(drop = True).T
             logging.info('data_transformation_started')
 
             # save_object(
@@ -61,7 +61,7 @@ class DataTransformation:
 
             logging.info('preprocessing done')
 
-            save_object(
+            save_preprocessor(
                 filepath=self.data_transformation_config.preprocessor_obj_file_path,
                 obj=preprocessing_obj
 
@@ -74,6 +74,18 @@ class DataTransformation:
 
         except Exception as e:
             raise CustomException(e, sys)
+        
+
+    def get_data(self, file_path):
+        try:
+
+            data_transformed = DataTransformation()
+            transformed_data = data_transformed.initiate_data_transformation(file_path)
+            return (transformed_data[0])
+        
+        except Exception as e:
+            raise CustomException(e, sys)
+        
 
         
         
