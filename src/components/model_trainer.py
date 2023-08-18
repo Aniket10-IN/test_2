@@ -22,7 +22,7 @@ class ModelTrainer:
     def initiate_model_trainer(self, train_data_path):
         try:
             if os.path.exists(self.model_trainer_config.trained_model_file_path):
-                print('exist')
+                # print('exist')
     #             load_object(self.model_trainer_config.trained_model_file_path)
     #             Load the model if it's already trained
                 loaded_preprocessor = load_object('artifacts/preprocessor.pkl')
@@ -35,7 +35,7 @@ class ModelTrainer:
                 res = self.model.gibbs(np.array(train_data))
                 return res
             else:
-                print('not exist')
+                # print('not exist')
                 loaded_preprocessor = load_object('artifacts/preprocessor.pkl')
                 train_data = loaded_preprocessor.get_data(train_data_path)
 

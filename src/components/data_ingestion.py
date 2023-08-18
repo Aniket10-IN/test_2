@@ -51,13 +51,13 @@ if __name__ == "__main__":
 
     loaded_preprocessor = load_object('artifacts/preprocessor.pkl')
     loaded_preprocessed_data = loaded_preprocessor.get_data(train_data)
-    print(loaded_preprocessed_data)
+    # print(loaded_preprocessed_data)
     # print(preprocessed_data[0])
 
     trained_model = ModelTrainer()
     model_res = trained_model.initiate_model_trainer(train_data)
-    print(model_res)
-    print(model_res.shape)
+    # print(model_res)
+    # print(model_res.shape)
     logging.info('got model probabilities for each user')
     # print(model_res.shape)
     

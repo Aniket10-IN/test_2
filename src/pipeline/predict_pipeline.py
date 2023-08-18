@@ -61,8 +61,8 @@ class CustomData:
 if __name__ == "__main__":
     predict_pipe = PredictPipeline()
     output = predict_pipe.predict('A2S9PZCNEJEF3Y', 'dataset/clean_data.csv')
-    print(output.shape)
-    print(output)
+    # print(output.shape)
+    # print(output)
     # cust_input = CustomData('A2S9PZCNEJEF3Y')
     # output = cust_input.get_data_input()
     # print(output)

@@ -24,19 +24,19 @@ def predict_datapoint():
         return render_template('home.html')
     
     else:
-        print("Received form data:", request.form)
+        # print("Received form data:", request.form)
         # user_id = CustomData(
         #     request.form.get('user_id')
         # )
 
         user_id = request.form['user_id']
-        print('Before Prediction')
+        # print('Before Prediction')
 
         predict_pipeline = PredictPipeline()
-        print('Mid Prediction')
+        # print('Mid Prediction')
         results = predict_pipeline.predict(user_id,'dataset/clean_data.csv')
-        print(results)
-        print("after Prediction")
+        # print(results)
+        # print("after Prediction")
         return render_template('home.html',results=results.to_html(classes='table table-striped', index=False))
     
         # return render_template('home.html',results=results.to_html(classes='table table-striped', index=False))
