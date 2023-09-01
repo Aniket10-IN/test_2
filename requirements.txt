@@ -3,6 +3,7 @@ numpy
 seaborn
 scikit-learn
 dill
+gunicorn
 # xgboost
 # catboost
 Flask
